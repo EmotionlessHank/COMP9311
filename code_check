@@ -1,0 +1,8 @@
+create or replace view Q1(unswid, longname)
+as
+
+select distinct rooms.unswid, rooms.longname
+from rooms, room_facilities, facilities
+where facilities.description = 'Air-conditioned'
+and facilities.id = room_facilities.facilities
+and room_facilities.room = rooms.id
